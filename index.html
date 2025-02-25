@@ -93,13 +93,17 @@
     <div class="section-divider"></div>
     <section id="contact" class="contact-section">
         <h2>Let's Connect</h2>
-        <form action="mail.php" method="POST">
+        <form action="https://formspree.io/f/xbldvqpn" method="POST">
             <input type="text" name="name" placeholder="Your Name" required />
             <input type="email" name="email" placeholder="Your Email" required />
             <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send</button>
         </form>
+
+        <!-- Success message from Formspree response -->
+        <div id="form-message" style="display: none; text-align: center; margin-top: 20px;"></div>
     </section>
+
     <footer class="site-footer">
         <p>Made with ❤️ by Remco Horbach</p>
     </footer>
