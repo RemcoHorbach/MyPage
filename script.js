@@ -9,7 +9,6 @@ if (savedTheme) {
     }
 }
 
-// Toggle visibility on theme change
 themeToggle.addEventListener("change", () => {
     if (themeToggle.checked) {
         body.classList.add("dark-mode");
@@ -20,8 +19,6 @@ themeToggle.addEventListener("change", () => {
         body.classList.remove("dark-mode");
         localStorage.setItem("theme", "light-mode");
     }
-
-    // Trigger visibility update for stars and clouds
     updateThemeElements();
 });
 
@@ -41,7 +38,6 @@ function updateThemeElements() {
     }
 }
 
-// Call it initially to apply on page load
 updateThemeElements();
 
 window.addEventListener("scroll", () => {
@@ -102,27 +98,24 @@ document.addEventListener("mousemove", (e) => {
     });
 });
 
-// Generate Twinkling Stars
 function createStars() {
     const starsContainer = document.getElementById('stars-container');
 
-    for (let i = 0; i < 150; i++) {  // Number of stars
+    for (let i = 0; i < 150; i++) {
         const star = document.createElement('div');
         star.classList.add('star');
-        const size = Math.random() * 3; // Random star size
-
+        const size = Math.random() * 3;
         star.style.width = `${size}px`;
         star.style.height = `${size}px`;
         star.style.top = `${Math.random() * 100}vh`;
         star.style.left = `${Math.random() * 100}vw`;
-        star.style.animationDuration = `${Math.random() * 2 + 1}s`; // Random twinkle speed
-        star.style.animationDelay = `${Math.random() * 2}s`; // Random start delay
+        star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+        star.style.animationDelay = `${Math.random() * 2}s`;
 
         starsContainer.appendChild(star);
     }
 }
 
-// Call the function on page load
 window.onload = () => {
     createStars();
     setTimeout(typeWriter, 1000);
@@ -133,27 +126,24 @@ function createShootingStar() {
     shootingStar.classList.add('shooting-star');
 
     const container = document.getElementById('shooting-stars-container');
-
-    // Random starting position
     const startX = Math.random() * window.innerWidth;
-    const startY = Math.random() * window.innerHeight * 0.3; // Restrict within the top 30% for realism
+    const startY = Math.random() * window.innerHeight * 0.3;
 
     shootingStar.style.left = `${startX}px`;
     shootingStar.style.top = `${startY}px`;
 
     container.appendChild(shootingStar);
 
-    // Remove star after animation completes
     setTimeout(() => {
         shootingStar.remove();
-    }, 2000); // Matches the animation duration
+    }, 2000);
 }
 
 setInterval(() => {
-    if (Math.random() > 0.3) {  // Random chance to trigger shooting star
+    if (Math.random() > 0.5) {
         createShootingStar();
     }
-}, 5000);
+}, 500);
 window.addEventListener("scroll", () => {
     const navbar = document.querySelector(".navbar");
     if (window.scrollY > 50) {
@@ -166,20 +156,16 @@ function createCustomCloud() {
     const cloud = document.createElement("div");
     cloud.classList.add("cloud");
 
-    // Randomize cloud position and speed
-    cloud.style.top = `${Math.random() * 50}%`; // Random vertical position within 50% height
-    cloud.style.animationDuration = `${40 + Math.random() * 20}s`; // Slower movement
-    cloud.style.opacity = 0; // Start fully transparent
+    cloud.style.top = `${Math.random() * 100}%`;
+    cloud.style.animationDuration = `${40 + Math.random() * 20}s`;
+    cloud.style.opacity = 0;
 
     document.getElementById("clouds-container").appendChild(cloud);
-
-    // Remove after full animation
     setTimeout(() => {
         cloud.remove();
-    }, 45000); // Matches the animation time
+    }, 45000);
 }
 
-// Generate fewer clouds (every 8 seconds)
 setInterval(createCustomCloud, 8000);
 
 
