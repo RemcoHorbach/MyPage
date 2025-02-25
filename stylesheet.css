@@ -61,11 +61,6 @@ body {
     transition: text-shadow 0.3s ease;
 }
 
-body.scrolled .navbar {
-    background: rgba(10, 10, 20, 0.8);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-}
-
 .theme-switch {
     position: relative;
     display: inline-block;
